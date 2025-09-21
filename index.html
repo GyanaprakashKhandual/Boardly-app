@@ -1,33 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tic-Tac-Toe Game</title>
-    <link rel="stylesheet" href="style.css" />
-  </head>
-  <body>
-    <div class="msg-container hide">
-      <p id="msg">Winner</p>
-      <button id="new-btn">New Game</button>
-    </div>
-    <main>
-      <h1>Tic Tac Toe</h1>
-      <div class="container">
-        <div class="game">
-          <button class="box"></button>
-          <button class="box"></button>
-          <button class="box"></button>
-          <button class="box"></button>
-          <button class="box"></button>
-          <button class="box"></button>
-          <button class="box"></button>
-          <button class="box"></button>
-          <button class="box"></button>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boardly - Professional Tic Tac Toe</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="theme-dark">
+    <div class="container">
+        <div class="header">
+            <h1 class="logo">🎯 Boardly</h1>
+            <p class="subtitle">Professional Tic Tac Toe Experience</p>
         </div>
-      </div>
-      <button id="reset-btn">Reset Game</button>
-    </main>
+
+        <div class="controls">
+            <div class="control-group">
+                <label>Choose Theme</label>
+                <div class="theme-selector">
+                    <div class="theme-btn theme-dark active" data-theme="dark" title="Dark Theme"></div>
+                    <div class="theme-btn theme-light" data-theme="light" title="Light Theme"></div>
+                    <div class="theme-btn theme-ocean" data-theme="ocean" title="Ocean Theme"></div>
+                    <div class="theme-btn theme-forest" data-theme="forest" title="Forest Theme"></div>
+                    <div class="theme-btn theme-sunset" data-theme="sunset" title="Sunset Theme"></div>
+                </div>
+            </div>
+
+            <div class="control-group">
+                <button class="btn" onclick="resetGame()">New Game</button>
+                <button class="btn btn-secondary" onclick="clearHistory()">Clear History</button>
+            </div>
+        </div>
+
+        <div class="game-area">
+            <div class="game-board">
+                <div class="game-status">
+                    <div class="status-text" id="gameStatus">Player X's Turn</div>
+                    <div class="score">
+                        <div class="score-item">
+                            <div class="score-label">Player X</div>
+                            <div class="score-value" id="scoreX">0</div>
+                        </div>
+                        <div class="score-item">
+                            <div class="score-label">Draws</div>
+                            <div class="score-value" id="scoreDraw">0</div>
+                        </div>
+                        <div class="score-item">
+                            <div class="score-label">Player O</div>
+                            <div class="score-value" id="scoreO">0</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="board" id="gameBoard">
+                    <div class="cell" data-index="0"></div>
+                    <div class="cell" data-index="1"></div>
+                    <div class="cell" data-index="2"></div>
+                    <div class="cell" data-index="3"></div>
+                    <div class="cell" data-index="4"></div>
+                    <div class="cell" data-index="5"></div>
+                    <div class="cell" data-index="6"></div>
+                    <div class="cell" data-index="7"></div>
+                    <div class="cell" data-index="8"></div>
+                </div>
+            </div>
+
+            <div class="history-panel">
+                <div class="history-header">
+                    <h3 class="history-title">Game History</h3>
+                    <span id="historyCount">0 games</span>
+                </div>
+                <div class="history-list" id="historyList">
+                    <p style="text-align: center; color: var(--text-secondary); margin-top: 50px;">No games played yet
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="animation-container" id="animationContainer"></div>
+
     <script src="script.js"></script>
-  </body>
+</body>
+
 </html>
